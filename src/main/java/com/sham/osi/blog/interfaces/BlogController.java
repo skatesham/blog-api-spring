@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +33,7 @@ public class BlogController {
 
 	private final BlogFacade blogFacade;
 
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping
 	public ResponseEntity<BlogDTO> create(@RequestBody final BlogDTO blogDTO) {
 		final BlogDTO BlogCreated = this.blogFacade.create(blogDTO);
