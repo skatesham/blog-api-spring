@@ -36,7 +36,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class User implements UserDetails {
 
-	private static final boolean DEFAULT_AUTH_VALUE = false;
+	private static final boolean DEFAULT_AUTH_VALUE = true;
 	private static final long serialVersionUID = 8278876201651323148L;
 
 	public static User of(final String username, final String password, final String name, final String email,
@@ -48,7 +48,7 @@ public class User implements UserDetails {
 		checkArgument(validator.isValid(email, null), ValidationMessageUtil.EMAIL_NOT_VALID);
 		Validate.notNull(authorities, ValidationMessageUtil.getFieldCannotBeNull("authorities"));
 		// FIXME: Not Right message
-		checkArgument(CollectionUtils.isEmpty(authorities), ValidationMessageUtil.getFieldCannotBeNull("authorities"));
+		checkArgument(!CollectionUtils.isEmpty(authorities), ValidationMessageUtil.getFieldCannotBeNull("authorities"));
 		return new User(username, password, name, email, job, authorities);
 	}
 
@@ -56,7 +56,7 @@ public class User implements UserDetails {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	// Security fields
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String username;
 	@JsonIgnore
 	@Column(nullable = false)
@@ -76,7 +76,7 @@ public class User implements UserDetails {
 	// Extra
 	@Column
 	private String name;
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String email;
 	@Column
 	private String job;
@@ -108,6 +108,10 @@ public class User implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return ImmutableList.copyOf(this.authorities);
+	}
+
+	public Collection<UserGroup> getAuthorityEntitys() {
 		return ImmutableList.copyOf(this.authorities);
 	}
 

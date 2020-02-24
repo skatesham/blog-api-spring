@@ -6,6 +6,7 @@ import java.time.ZoneOffset;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.json.JsonParseException;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -21,9 +22,8 @@ import lombok.experimental.UtilityClass;
 public class JwtService {
 
 	private static final int EXPIRATION_TIME = 1;
-	private static final String KEY = "my-secret-key";
-
-	ObjectMapper mapper = new ObjectMapper();
+	@Value("auth.jwt.key")
+	private static String KEY;
 
 	public static String generateToken(final User user) throws JsonProcessingException {
 		final ObjectMapper mapper = new ObjectMapper();

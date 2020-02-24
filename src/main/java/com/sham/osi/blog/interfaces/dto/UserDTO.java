@@ -14,7 +14,6 @@ public class UserDTO {
 	private Long id;
 	private String name;
 	private String username;
-	@JsonIgnore
 	private String password;
 	private String email;
 	@JsonIgnore
@@ -25,6 +24,7 @@ public class UserDTO {
 	private boolean credentialsNonExpired;
 	@JsonIgnore
 	private boolean accountNonLocked;
+	private String job;
 
 	private List<UserGroupDTO> authorities;
 }
