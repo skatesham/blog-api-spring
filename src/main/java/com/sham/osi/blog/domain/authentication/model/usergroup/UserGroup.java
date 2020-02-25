@@ -10,6 +10,8 @@ import javax.persistence.Id;
 
 import org.springframework.security.core.GrantedAuthority;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -32,6 +34,9 @@ public class UserGroup implements GrantedAuthority {
 	@Column(nullable = false, unique = true)
 	@Enumerated(EnumType.STRING)
 	private RoleEnum authority;
+
+	@JsonIgnore
+	private String role;
 
 	@Override
 	public String getAuthority() {

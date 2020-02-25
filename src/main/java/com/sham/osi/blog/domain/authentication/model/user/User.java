@@ -81,7 +81,8 @@ public class User implements UserDetails {
 	private String email;
 	@Column
 	private String job;
-	@Column(nullable = false)
+
+	@Column(columnDefinition = "TIMESTAMP", nullable = false)
 	private LocalDateTime registered;
 
 	private User(final String username, final String password, final String name, final String email, final String job,
@@ -107,11 +108,13 @@ public class User implements UserDetails {
 		this.registered = LocalDateTime.now();
 	}
 
+	@JsonIgnore
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return ImmutableList.copyOf(this.authorities);
 	}
 
+	@JsonIgnore
 	public Collection<UserGroup> getAuthorityEntitys() {
 		return ImmutableList.copyOf(this.authorities);
 	}
