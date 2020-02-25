@@ -1,4 +1,4 @@
-package com.sham.osi.blog.domain.user;
+package com.sham.osi.blog.domain.authentication.model.user;
 
 import java.util.List;
 
@@ -6,6 +6,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.google.common.collect.Lists;
+import com.sham.osi.blog.domain.authentication.model.usergroup.RoleEnum;
+import com.sham.osi.blog.domain.authentication.model.usergroup.UserGroup;
+import com.sham.osi.blog.domain.authentication.model.usergroup.UserGroupService;
 import com.sham.osi.blog.interfaces.dto.UserDTO;
 import com.sham.osi.blog.interfaces.dto.UserGroupDTO;
 

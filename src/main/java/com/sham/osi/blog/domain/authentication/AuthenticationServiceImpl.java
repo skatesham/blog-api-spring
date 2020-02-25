@@ -9,9 +9,10 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sham.osi.blog.domain.user.User;
-import com.sham.osi.blog.domain.user.UserGroup;
-import com.sham.osi.blog.domain.user.UserService;
+import com.sham.osi.blog.domain.authentication.model.auth.AuthenticatioDTOConverter;
+import com.sham.osi.blog.domain.authentication.model.user.User;
+import com.sham.osi.blog.domain.authentication.model.user.UserService;
+import com.sham.osi.blog.domain.authentication.model.usergroup.UserGroup;
 import com.sham.osi.blog.infrastructure.auth.JwtService;
 import com.sham.osi.blog.interfaces.dto.LoginDTO;
 import com.sham.osi.blog.interfaces.dto.TokenDTO;

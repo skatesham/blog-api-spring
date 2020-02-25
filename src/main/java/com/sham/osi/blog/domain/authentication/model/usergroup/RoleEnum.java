@@ -1,4 +1,4 @@
-package com.sham.osi.blog.domain.user;
+package com.sham.osi.blog.domain.authentication.model.usergroup;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

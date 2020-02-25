@@ -14,7 +14,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import com.sham.osi.blog.domain.user.User;
+import com.sham.osi.blog.domain.authentication.model.user.User;
 
 public class JwtAuthenticationFilter implements Filter {
 

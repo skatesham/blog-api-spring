@@ -1,4 +1,4 @@
-package com.sham.osi.blog.domain.user;
+package com.sham.osi.blog.domain.authentication.model.user;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
@@ -26,6 +26,7 @@ import org.springframework.util.CollectionUtils;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.ImmutableList;
+import com.sham.osi.blog.domain.authentication.model.usergroup.UserGroup;
 import com.sham.osi.blog.domain.common.ValidationMessageUtil;
 
 import lombok.Getter;

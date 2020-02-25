@@ -6,7 +6,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sham.osi.blog.domain.blog.Blog;
+import com.sham.osi.blog.domain.blog.model.Blog;
 import com.sham.osi.blog.interfaces.dto.BlogDTO;
 
 import lombok.experimental.UtilityClass;

@@ -1,4 +1,4 @@
-package com.sham.osi.blog.domain.user;
+package com.sham.osi.blog.domain.authentication.model.usergroup;
 
 import java.util.List;
 import java.util.stream.Collectors;

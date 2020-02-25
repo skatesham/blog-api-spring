@@ -1,8 +1,8 @@
-package com.sham.osi.blog.domain.authentication;
+package com.sham.osi.blog.domain.authentication.model.auth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sham.osi.blog.domain.user.User;
-import com.sham.osi.blog.domain.user.UserGroup;
+import com.sham.osi.blog.domain.authentication.model.user.User;
+import com.sham.osi.blog.domain.authentication.model.usergroup.UserGroup;
 import com.sham.osi.blog.interfaces.dto.UserDTO;
 import com.sham.osi.blog.interfaces.dto.UserGroupDTO;
 
