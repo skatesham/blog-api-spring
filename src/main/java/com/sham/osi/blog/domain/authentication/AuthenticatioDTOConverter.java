@@ -1,4 +1,4 @@
-package com.sham.osi.blog.application;
+package com.sham.osi.blog.domain.authentication;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sham.osi.blog.domain.user.User;
