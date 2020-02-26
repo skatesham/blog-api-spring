@@ -3,19 +3,18 @@ package com.sham.osi.blog.domain.blog;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sham.osi.blog.domain.blog.model.Blog;
 import com.sham.osi.blog.domain.blog.model.BlogRepository;
 import com.sham.osi.blog.interfaces.dto.BlogDTO;
 
-import lombok.AllArgsConstructor;
-
 @Service
-@AllArgsConstructor
 public class BlogViewerServiceImpl implements BlogViewerService {
 
-	private final BlogRepository blogRepository;
+	@Autowired
+	private BlogRepository blogRepository;
 
 	@Override
 	public List<Blog> getAllBlogs() {
