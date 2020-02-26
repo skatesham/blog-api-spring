@@ -1,4 +1,4 @@
-package com.sham.osi.blog.domain.blog;
+package com.sham.osi.blog.domain.blog.model;
 
 import static com.sham.osi.blog.domain.common.ValidationMessageUtil.getFieldCannotBeNull;
 

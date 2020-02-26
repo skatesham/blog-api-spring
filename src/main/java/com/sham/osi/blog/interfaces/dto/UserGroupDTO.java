@@ -1,6 +1,6 @@
 package com.sham.osi.blog.interfaces.dto;
 
-import com.sham.osi.blog.domain.user.RoleEnum;
+import com.sham.osi.blog.domain.authentication.model.usergroup.RoleEnum;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

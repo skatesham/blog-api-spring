@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.sham.osi.blog.domain.blog.model.Blog;
+import com.sham.osi.blog.domain.blog.model.BlogRepository;
 import com.sham.osi.blog.interfaces.dto.BlogDTO;
 
 import lombok.AllArgsConstructor;

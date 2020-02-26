@@ -1,4 +1,4 @@
-package com.sham.osi.blog.domain.user;
+package com.sham.osi.blog.domain.authentication.model.user;
 
 import java.util.Optional;
 
