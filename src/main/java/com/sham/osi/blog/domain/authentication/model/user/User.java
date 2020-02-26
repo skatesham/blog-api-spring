@@ -5,11 +5,13 @@ import static com.google.common.base.Preconditions.checkArgument;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -70,7 +72,7 @@ public class User implements UserDetails {
 	private boolean credentialsNonExpired;
 	@Column(nullable = false)
 	private boolean accountNonLocked;
-	@ManyToMany(targetEntity = UserGroup.class, cascade = CascadeType.ALL)
+	@ManyToMany(targetEntity = UserGroup.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "authority_id"), uniqueConstraints = {
 			@UniqueConstraint(columnNames = { "user_id", "authority_id" }) })
 	private List<UserGroup> authorities;
@@ -111,12 +113,16 @@ public class User implements UserDetails {
 	@JsonIgnore
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return ImmutableList.copyOf(this.authorities);
+		return Optional.ofNullable(this.authorities).map(ImmutableList::copyOf).orElse(null);
 	}
 
 	@JsonIgnore
 	public Collection<UserGroup> getAuthorityEntitys() {
 		return ImmutableList.copyOf(this.authorities);
+	}
+
+	public void clearRegistered() {
+		this.registered = null;
 	}
 
 }

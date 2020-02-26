@@ -27,4 +27,8 @@ public class UserDTO {
 	private String job;
 
 	private List<UserGroupDTO> authorities;
+
+	public void clearPassword() {
+		this.password = null;
+	}
 }

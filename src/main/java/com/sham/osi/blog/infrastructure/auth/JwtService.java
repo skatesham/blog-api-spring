@@ -21,6 +21,7 @@ public class JwtService {
 
 	public static String generateToken(final User user, final String key) throws JsonProcessingException {
 		final ObjectMapper mapper = new ObjectMapper();
+		user.clearRegistered();
 		final String userJson = mapper.writeValueAsString(user);
 		final Date expiration = new Date(System.currentTimeMillis() + EXPIRATION_TIME);
 		final String token = Jwts.builder().claim("userDetails", userJson).setIssuer("com.sham.osi.blog")
@@ -28,7 +29,8 @@ public class JwtService {
 		return token;
 	}
 
-	public static User parseToken(final String token, final String key) throws JsonParseException, JsonMappingException, IOException {
+	public static User parseToken(final String token, final String key)
+			throws JsonParseException, JsonMappingException, IOException {
 		final ObjectMapper mapper = new ObjectMapper();
 		final String credentialsJson = Jwts.parser().setSigningKey(key).parseClaimsJws(token).getBody()
 				.get("userDetails", String.class);
