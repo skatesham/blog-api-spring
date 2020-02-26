@@ -1,4 +1,4 @@
-package com.sham.osi.blog.application;
+package com.sham.osi.blog.application.essential;
 
 import lombok.experimental.UtilityClass;
 
